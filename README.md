@@ -32,6 +32,12 @@ pip install pybel scikit-image pebble meeko==0.1.dev1 vina pytransform3d
 ### Data Preparation
 Our training data was extracted from the open molecule database [ZINC](https://zinc.docking.org/). You need to download it first. 
 
+To get the fragment vocabulary
+```bash
+cd preparation
+python get_fragment_vocab.py # fill blank path in the file first
+```
+
 ### Training Shape2Mol Model
 
 ## Design Molecules
