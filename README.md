@@ -24,5 +24,4 @@ Zero-Shot 3D Drug Design by Sketching and Generating (NeurIPS 2022)
   booktitle={NeurIPS},
   year={2022}
 }
-
 ```
