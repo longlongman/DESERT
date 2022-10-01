@@ -11,6 +11,15 @@ Zero-Shot 3D Drug Design by Sketching and Generating (NeurIPS 2022)
 </div>
 
 ## Requirement
+Our method is powered by an old version [ParaGen](https://github.com/bytedance/ParaGen) (previous name ByCha).
+
+Install it with
+```bash
+cd mybycha
+pip install -e .
+pip install horovod
+pip install lightseq
+```
 
 ## Pre-training
 
