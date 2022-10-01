@@ -38,6 +38,11 @@ cd preparation
 python get_fragment_vocab.py # fill blank path in the file first
 ```
 
+To get the training data
+```bash
+python get_training_data.py # fill blank path in the file first
+```
+
 ### Training Shape2Mol Model
 
 ## Design Molecules
