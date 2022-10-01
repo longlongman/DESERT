@@ -30,6 +30,7 @@ pip install pybel scikit-image pebble meeko==0.1.dev1 vina pytransform3d
 ## Pre-training
 
 ### Data Preparation
+Our training data was extracted from the open molecule database [ZINC](https://zinc.docking.org/). You need to 
 
 ### Training Shape2Mol Model
 
