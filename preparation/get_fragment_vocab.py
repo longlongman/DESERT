@@ -7,7 +7,7 @@ from fragmenizer import BRICS_RING_R_Fragmenizer
 from utils import centralize, canonical_frag_smi
 
 data_path = 'ZINC SDF PATH'
-save_pkl_path = 'Your PATH'
+save_pkl_path = 'YOUR PATH'
 save_pkl_pattern = 'BRICS_RING_R.{}.pkl'
 save_pkl_file = os.path.join(save_pkl_path, save_pkl_pattern)
 file_list = os.listdir(data_path)[:]
