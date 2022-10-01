@@ -31,6 +31,8 @@ pip install pybel scikit-image pebble meeko==0.1.dev1 vina pytransform3d
 
 ### Data Preparation
 
+### Training Shape2Mol model
+
 ## Design Molecules
 
 ## Citation
