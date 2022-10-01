@@ -47,6 +47,10 @@ python get_training_data.py # fill blank path in the file first
 
 ## Design Molecules
 
+### Sketching
+
+### Generating
+
 ## Citation
 ```
 @inproceedings{long2022DESERT,
