@@ -70,7 +70,7 @@ python sketching.py # fill blank paths in the file first
 ### Generating
 
 ```bash
-bash generate.sh
+bash generate.sh # fill blank paths in the file first
 ```
 
 ## Citation
