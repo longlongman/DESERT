@@ -43,6 +43,8 @@ To get the training data
 python get_training_data.py # fill blank path in the file first
 ```
 
+We also provide partial training data and vocabulary [Here](https://drive.google.com/drive/folders/1T2tKgILJAIMK6uTuhh3-qV-Ib0JVgaBs?usp=sharing).
+
 ### Training Shape2Mol Model
 
 ## Design Molecules
