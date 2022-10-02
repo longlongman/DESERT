@@ -59,6 +59,8 @@ We also provide a trained checkpoint [Here](https://drive.google.com/file/d/1YCR
 
 ### Sketching
 
+For a given protein, you need to get its pocket by using [CAVITY](http://www.pkumdl.cn:8000/cavityplus/computation.php).
+
 ### Generating
 
 ## Citation
