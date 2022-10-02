@@ -8,9 +8,6 @@ import random
 import copy
 from skimage.util import view_as_blocks
 from .tfbio_data import rotation_matrix
-from .fragmenizer import BRICS_RING_R_Fragmenizer
-
-fragmenizer = BRICS_RING_R_Fragmenizer()
 
 def get_mol_centroid(mol, confId=-1):
     conformer = mol.GetConformer(confId)
@@ -241,38 +238,3 @@ def get_partial_tree(tree, mask_len):
     partial_tree.append(('EOS', None, None))
     remove_parts = tree[-mask_len:]
     return partial_tree, remove_parts
-
-def mask_frags(mol, frag_list, mask_frags_idx):
-    curr_frags, _ = fragmenizer.fragmenize(mol)
-    curr_frags = Chem.GetMolFrags(curr_frags, asMols=True)
-    curr_cen_f_idx_mapping = {}
-    for f_idx, frag in enumerate(curr_frags):
-        curr_cen = tuple(get_mol_centroid(frag).round(2))
-        curr_cen_f_idx_mapping[curr_cen] = f_idx
-    
-    list_cen_f_idx_mapping = {}
-    for f_idx, item in enumerate(frag_list):
-        cen = tuple(item['trans_vec'].round(2))
-        list_cen_f_idx_mapping[cen] = f_idx
-
-    assert len(curr_cen_f_idx_mapping) == len(list_cen_f_idx_mapping)
-
-    list_curr_mapping = {}
-    for cen in list_cen_f_idx_mapping:
-        try:
-            assert cen in curr_cen_f_idx_mapping
-            list_curr_mapping[list_cen_f_idx_mapping[cen]] = curr_cen_f_idx_mapping[cen]
-        except:
-            list_curr_mapping[list_cen_f_idx_mapping[cen]] = list_cen_f_idx_mapping[cen]
-    
-    for m_f_idx in mask_frags_idx:
-        curr_frag = curr_frags[list_curr_mapping[m_f_idx]]
-        for atom in curr_frag.GetAtoms():
-            origin_atom_idx = get_atom_prop(atom, 'origin_atom_idx')
-            if origin_atom_idx is None:
-                continue
-            origin_atom_idx = int(origin_atom_idx)
-            origin_atom = mol.GetAtomWithIdx(origin_atom_idx)
-            set_atom_prop(origin_atom, 'mask', 'true')
-    
-    return mol
