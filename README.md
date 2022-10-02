@@ -10,6 +10,8 @@ Zero-Shot 3D Drug Design by Sketching and Generating (NeurIPS 2022)
 <img src="./pics/overview.png"/>
 </div>
 
+P.s. Because the project is too tied to ByteDance infrastructure, we can not sure that it can run on your device painlessly.
+
 ## Requirement
 Our method is powered by an old version of [ParaGen](https://github.com/bytedance/ParaGen) (previous name ByCha).
 
