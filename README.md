@@ -35,17 +35,19 @@ Our training data was extracted from the open molecule database [ZINC](https://z
 To get the fragment vocabulary
 ```bash
 cd preparation
-python get_fragment_vocab.py # fill blank path in the file first
+python get_fragment_vocab.py # fill blank paths in the file first
 ```
 
 To get the training data
 ```bash
-python get_training_data.py # fill blank path in the file first
+python get_training_data.py # fill blank paths in the file first
 ```
 
 We also provide partial training data and vocabulary [Here](https://drive.google.com/drive/folders/1T2tKgILJAIMK6uTuhh3-qV-Ib0JVgaBs?usp=sharing).
 
 ### Training Shape2Mol Model
+
+You need to fill blank paths in configs/training.yaml and train.sh.
 
 ## Design Molecules
 

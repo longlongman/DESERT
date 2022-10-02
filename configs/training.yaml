@@ -1,0 +1,124 @@
+task:
+  class: ShapePretrainingTaskNoRegression
+  mode: train
+
+  # for training efficiency
+  max_seq_len: 20
+  
+  # for get molecule shape
+  grid_resolution: 0.5
+  max_dist_stamp: 4.0
+  max_dist: 6.75
+  patch_size: 4
+  
+  # for molecule augmentation
+  rotation_bin: 24
+  max_translation: 1.0
+
+  delta_input: False
+  
+  data:
+    train:
+      class: ShapePretrainingDatasetShard
+      path: ---TRAINING DATA PATH---
+      vocab_path: ---VOCAB PATH---
+      sample_each_shard: 500000
+      shuffle: True
+    valid:
+      class: ShapePretrainingDataset
+      path: 
+        samples: ---VALID DATA PATH---
+        vocab: ---VOCAB PATH---
+    test:
+      class: ShapePretrainingDataset
+      path: 
+        samples: ---TEST DATA PATH---
+        vocab: ---VOCAB PATH---
+  
+  dataloader:
+    train:
+      class: ShapePretrainingDataLoaderShard
+      max_samples: 64
+    valid:
+      class: InMemoryDataLoader
+      sampler:
+        class: SequentialSampler
+        max_samples: 128
+    test:
+      class: InMemoryDataLoader
+      sampler:
+        class: SequentialSampler
+        max_samples: 128
+  
+  trainer:
+    class: Trainer
+    optimizer:
+      class: AdamW
+      lr:
+        class: InverseSquareRootRateScheduler
+        rate: 5e-4
+        warmup_steps: 4000
+      clip_norm: 0.
+      betas: (0.9, 0.98)
+      eps: 1e-8
+      weight_decay: 1e-2
+      update_frequency: 4
+    max_steps: 300000
+    log_interval: 100
+    validate_interval_step: 500
+    assess_reverse: True
+
+  model:
+    class: ShapePretrainingModel
+    encoder:
+      class: ShapePretrainingEncoder
+      patch_size: 4
+      num_layers: 12
+      d_model: 1024
+      n_head: 8
+      dim_feedforward: 4096
+      dropout: 0.1
+      activation: 'relu'
+      learn_pos: True
+    decoder:
+      class: ShapePretrainingDecoderIterativeNoRegression
+      num_layers: 12
+      d_model: 1024
+      n_head: 8
+      dim_feedforward: 4096
+      dropout: 0.1
+      activation: 'relu'
+      learn_pos: True
+      iterative_num: 1
+      max_dist: 6.75
+      grid_resolution: 0.5
+      iterative_block:
+        class: ShapePretrainingIteratorNoRegression
+        num_layers: 3
+        d_model: 1024
+        n_head: 8
+        dim_feedforward: 4096
+        dropout: 0.1
+        activation: 'relu'
+        learn_pos: True
+    d_model: 1024
+    share_embedding: decoder-input-output
+  
+  criterion:
+    class: ShapePretrainingCriterionNoRegression
+
+  generator:
+    class: SequenceGenerator
+    search:
+      class: ShapePretrainingSearchIterativeNoRegression
+      maxlen_coef: (0.0, 20.0)
+  
+  evaluator:
+    class: Evaluator
+    metric:
+      acc:
+        class: Accuracy
+
+env:
+  device: cuda
+  fp16: True
