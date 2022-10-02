@@ -53,6 +53,8 @@ You need to fill blank paths in configs/training.yaml and train.sh.
 bash train.sh
 ```
 
+We also provide a trained checkpoint [Here](https://drive.google.com/file/d/1YCRORU5aMJEMO8hDT_o9uKCXmXTL5_5N/view?usp=sharing).
+
 ## Design Molecules
 
 ### Sketching
