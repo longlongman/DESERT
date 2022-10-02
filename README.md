@@ -49,6 +49,10 @@ We also provide partial training data and vocabulary [Here](https://drive.google
 
 You need to fill blank paths in configs/training.yaml and train.sh.
 
+```bash
+bash train.sh
+```
+
 ## Design Molecules
 
 ### Sketching
