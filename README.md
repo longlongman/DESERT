@@ -61,7 +61,7 @@ We also provide a trained checkpoint [Here](https://drive.google.com/file/d/1YCR
 
 For a given protein, you need to get its pocket by using [CAVITY](http://www.pkumdl.cn:8000/cavityplus/computation.php).
 
-Sampling molecular shape with
+Sampling molecular shapes with
 ```bash
 cd sketch
 python sketching.py # fill blank paths in the file first

@@ -1,4 +1,3 @@
-from shape_pretraining import fragmenizer
 from .shape_pretraining_dataset import ShapePretrainingDataset
 from .shape_pretraining_model import ShapePretrainingModel
 from .shape_pretraining_encoder import ShapePretrainingEncoder
@@ -9,4 +8,4 @@ from .shape_pretraining_criterion_no_regression import ShapePretrainingCriterion
 from .shape_pretraining_decoder_iterative_no_regression import ShapePretrainingDecoderIterativeNoRegression
 from .shape_pretraining_iterator_no_regression import ShapePretrainingIteratorNoRegression
 from .shape_pretraining_search_iterative_no_regression import ShapePretrainingSearchIterativeNoRegression
-from .fragmenizer.brics_ring_r_fragmenizer import BRICS_RING_R_Fragmenizer
+from .shape_pretraining_dataset_pocket import ShapePretrainingDatasetPocket
