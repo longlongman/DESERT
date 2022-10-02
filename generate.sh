@@ -1,0 +1,12 @@
+bycha-run \
+    --config configs/generating.yaml \
+    --lib shape_pretraining \
+    --task.mode evaluate \
+    --task.data.train.path data \
+    --task.data.valid.path.samples ❗❗❗FILL_THIS(MOLECULE SHAPES SAMPLED FROM CAVITY)❗❗❗ \
+    --task.data.test.path.samples  ❗❗❗FILL_THIS❗❗❗ \
+    --task.dataloader.train.max_samples 1 \
+    --task.dataloader.valid.sampler.max_samples 1 \
+    --task.dataloader.test.sampler.max_samples 1 \
+    --task.model.path ❗❗❗FILL_THIS❗❗❗ \
+    --task.evaluator.save_hypo_dir ❗❗❗FILL_THIS❗❗❗

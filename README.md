@@ -69,6 +69,10 @@ python sketching.py # fill blank paths in the file first
 
 ### Generating
 
+```bash
+bash generate.sh
+```
+
 ## Citation
 ```
 @inproceedings{long2022DESERT,
